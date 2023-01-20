@@ -10,10 +10,10 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'no-only-tests/no-only-tests': 'error',
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    'testing-library/no-render-in-setup': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     'prettier/prettier': [
       'error',
       {
