@@ -1,4 +1,3 @@
-// src/components/HeaderBarBrand.test.tsx
 import HeaderBarBrand from './HeaderBarBrand'
 import {render, screen, within, act} from '@testing-library/react'
 import {BrowserRouter} from 'react-router-dom'
@@ -19,7 +18,6 @@ describe('HeaderBarBrand', () => {
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noopener noreferrer')
 
-    // not easy to get a tag with RTL, needed to use a test id
     within(await screen.findByTestId('header-bar-brand')).getByTestId(
       'react-icon-svg',
     )
