@@ -18,7 +18,6 @@ module.exports = {
       'error',
       {
         endOfLine: 'auto',
-        semi: 'true',
       },
     ],
   },
@@ -27,4 +26,4 @@ module.exports = {
     amd: true,
     node: true,
   },
-};
+}

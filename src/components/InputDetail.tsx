@@ -1,12 +1,12 @@
-import {ChangeEvent} from 'react';
+import {ChangeEvent} from 'react'
 
 type InputDetailProps = {
-  name: string;
-  value: string;
-  placeholder: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  readOnly?: boolean;
-};
+  name: string
+  value: string
+  placeholder?: string
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  readOnly?: boolean
+}
 
 export default function InputDetail({
   name,
@@ -30,5 +30,5 @@ export default function InputDetail({
         type="text"
       ></input>
     </div>
-  );
+  )
 }
