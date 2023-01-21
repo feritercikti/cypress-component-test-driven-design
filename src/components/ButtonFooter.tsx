@@ -15,6 +15,7 @@ export default function ButtonFooter({
   return (
     <button
       data-cy={`${label.toLowerCase()}-button`}
+      data-testid={`${label.toLowerCase()}-button`}
       onClick={onClick}
       aria-label={label}
     >
