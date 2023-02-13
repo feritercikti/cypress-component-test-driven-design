@@ -101,50 +101,25 @@ jobs:
         run: yarn typecheck
 
   cypress-e2e-test:
-    # if you want to enable parallelization
-    # strategy:
-    #   matrix:
-    #     machines: [1, 2]
-    needs: [install-dependencies]
-    runs-on: ubuntu-latest
-    # container: cypress/included:10.11.0 #  no need when using cypress gha to install dependencies
-    steps:
-      - uses: actions/checkout@v3
+  needs: [install-dependencies]
+  runs-on: ubuntu-latest
+  container: cypress/included:10.7.0 # or whatever is the latest
+  steps:
+    - uses: actions/checkout@v3
 
-      # - uses: bahmutov/npm-install@v1.8.25 # save time on dependencies
-      #   with: {useRollingCache: true}
+    - uses: bahmutov/npm-install@v1.8.21
+      with: {useRollingCache: true}
 
-      - name: Cypress e2e tests 🧪
-        uses: cypress-io/github-action@v4.2.0
-        with:
-          # install: false # Cypress gha will take care of install instead of bahmutov/installs
-          start: yarn start
-          wait-on: 'http://localhost:3000'
-          browser: chrome
-          # if you want to enable parallelization
-          # record: true
-          # parallel: true
-          # group: e2e-tests
-          # tag: e2e-tests
-        env:
-          # if you want to enable parallelization
-          # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # if you want to enable codecov
-      # - name: Upload artifacts (Coverage_step3)
-      #   uses: actions/upload-artifact@v3.1.0
-      #   with:
-      #     name: coverage-cy-e2e
-      #     path: coverage-cy/
-      #     retention-days: 1
-
-      # - name: ✅ Upload e2e coverage to Codecov
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     directory: coverage-cy/
-      #     flags: cypress-e2e-coverage
-      #     token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Cypress e2e tests 🧪
+      uses: cypress-io/github-action@v4.2.0
+      with:
+        install: false
+        # update from yarn start to yarn dev
+        start: yarn dev
+        wait-on: 'http://localhost:3000'
+        browser: chrome
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   cypress-ct-test:
     # if you want to enable parallelization

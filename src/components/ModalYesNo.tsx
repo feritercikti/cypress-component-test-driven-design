@@ -10,11 +10,7 @@ type ModalYesNoProps = {
 export default function ModalYesNo({message, onYes, onNo}: ModalYesNoProps) {
   return (
     <Modal>
-      <div
-        data-cy="modal-yes-no"
-        data-testid="modal-yes-no"
-        className="modal-is-active"
-      >
+      <div data-cy="modal-yes-no" className="modal is-active">
         <div className="modal-background" />
         <div className="modal-card">
           <header className="modal-card-head">
@@ -24,17 +20,15 @@ export default function ModalYesNo({message, onYes, onNo}: ModalYesNoProps) {
           <footer className="modal-card-foot card-footer">
             <button
               data-cy="button-no"
-              data-testid="button-no"
-              className="button-modal-no"
               onClick={onNo}
+              className="button modal-no"
             >
               No
             </button>
             <button
               data-cy="button-yes"
-              data-testid="button-yes"
-              className="button is-primary modal-yes"
               onClick={onYes}
+              className="button is-primary modal-yes"
             >
               Yes
             </button>

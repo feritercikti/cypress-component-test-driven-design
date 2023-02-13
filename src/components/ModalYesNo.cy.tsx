@@ -32,7 +32,7 @@ describe('ModalYesNo', () => {
   })
 
   it('should not render the modal with if conditional render is false', () => {
-    function ParentComponent(): JSX.Element | boolean {
+    function ParentComponent(): any {
       return (
         false && (
           <ModalYesNo
